@@ -399,6 +399,22 @@
     {
       "packageName": "ui-degin",
       "projectFolder": "app/ui-degin"
+    },
+    {
+      "packageName": "es6",
+      "projectFolder": "app/es6"
+    },
+    {
+      "packageName": "google-translate",
+      "projectFolder": "app/google-translate"
+    },
+    {
+      "packageName": "hooks",
+      "projectFolder": "app/hooks"
+    },
+    {
+      "packageName": "transfer-station",
+      "projectFolder": "app/transfer-station"
     }
     // {
     //   /**
