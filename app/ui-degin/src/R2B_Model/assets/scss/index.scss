@@ -1,0 +1,16 @@
+@import './universal.scss';
+@import './recttoboard.scss';
+*
+{
+    margin    : 0;
+    padding   : 0;
+    list-style: none;
+}
+.App
+{
+    min-width      : 100vw;
+    min-height     : 100vh;
+    display        : grid;
+    justify-content: center;
+    align-items    : center;
+}

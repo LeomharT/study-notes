@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:100%;height:100vh" onclick="a()">
+
+    </div>
+</body>
+<script>
+    class Debounce {
+        timer;
+        exeFun;
+        Debounce(fun, time) {
+            this.exeFun = fun;
+
+            if (this.timer) clearTimeout(this.timer);
+            this.timer = setTimeout(() => {
+
+                if (this.exeFun)
+                {
+                    this.exeFun();
+                    this.exeFun = undefined;
+                }
+                this.timer = undefined;
+
+            }, time);
+        }
+    }
+
+    const d = new Debounce();
+
+    const ob = new ResizeObserver((e) => {
+        console.log(50);
+        d.Debounce(() => console.log(1), 1000);
+    });
+    ob.observe(document.querySelector('div'));
+</script>
+
+</html>
