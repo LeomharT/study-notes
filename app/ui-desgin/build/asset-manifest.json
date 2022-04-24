@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "./static/css/main.a469677b.css",
     "main.js": "./static/js/main.9ba65efb.js",
     "static/js/787.6b40539a.chunk.js": "./static/js/787.6b40539a.chunk.js",
@@ -11,5 +12,18 @@
   "entrypoints": [
     "static/css/main.a469677b.css",
     "static/js/main.9ba65efb.js"
+=======
+    "main.css": "./static/css/main.5d3e06d8.css",
+    "main.js": "./static/js/main.bd9e18a0.js",
+    "static/js/301.de903254.chunk.js": "./static/js/301.de903254.chunk.js",
+    "index.html": "./index.html",
+    "main.5d3e06d8.css.map": "./static/css/main.5d3e06d8.css.map",
+    "main.bd9e18a0.js.map": "./static/js/main.bd9e18a0.js.map",
+    "301.de903254.chunk.js.map": "./static/js/301.de903254.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5d3e06d8.css",
+    "static/js/main.bd9e18a0.js"
+>>>>>>> b0c2587... rename folder ui-desgin
   ]
 }
