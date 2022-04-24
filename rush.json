@@ -397,8 +397,8 @@
    */
   "projects": [       //没添加一个项目就在这里添加上
     {
-      "packageName": "ui-degin",
-      "projectFolder": "app/ui-degin"
+      "packageName": "ui-desgin",
+      "projectFolder": "app/ui-desgin"
     },
     {
       "packageName": "es6",

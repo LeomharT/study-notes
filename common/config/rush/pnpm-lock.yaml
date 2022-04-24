@@ -86,7 +86,7 @@ importers:
     devDependencies:
       '@types/ws': 8.5.3
 
-  ../../app/ui-degin:
+  ../../app/ui-desgin:
     specifiers:
       '@babel/plugin-proposal-decorators': ^7.17.9
       '@blueprintjs/core': ^4.1.2
@@ -5531,7 +5531,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.8
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: false
