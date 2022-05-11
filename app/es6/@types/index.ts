@@ -1,3 +1,4 @@
+
 export const Intent = {
     NONE: 'none' as 'none',
     PRIMARY: 'primary' as 'primary',
@@ -8,3 +9,4 @@ export const Intent = {
 
 
 type Intent = typeof Intent['DANGER'];
+export * as Classes from './classes';
