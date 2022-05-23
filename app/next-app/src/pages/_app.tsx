@@ -1,11 +1,10 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
-import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
 import { useState } from 'react';
+import '../styles/globals.css';
 import theme from '../theme/theme';
-import Buttondemo from './buttondemo';
 
-
-const Home: NextPage = () =>
+function MyApp({ Component, pageProps }: AppProps)
 {
     const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
     const toggleColorScheme = (value?: ColorScheme) =>
@@ -16,12 +15,10 @@ const Home: NextPage = () =>
          */
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
             <MantineProvider theme={{ ...theme, colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
-                <div>
-                    <Buttondemo />
-                </div>
+                <Component {...pageProps} />
             </MantineProvider>
         </ColorSchemeProvider>
     );
-};
+}
 
-export default Home;
+export default MyApp;
