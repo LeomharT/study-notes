@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useState } from 'react';
 import favicon from '../public/favicon.ico';
-import '../styles/globals.css';
 import '../styles/globals.scss';
 import theme from '../theme/theme';
 

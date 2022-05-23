@@ -10,7 +10,7 @@ export default function Buttondemo()
 
     return (
         <div>
-            <Link href='/'>
+            <Link href='#'>
                 <Button component='a'>Normal Button</Button>
             </Link>
             <ActionIcon
