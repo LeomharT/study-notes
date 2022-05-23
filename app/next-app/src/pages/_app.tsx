@@ -2,6 +2,7 @@ import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core
 import type { AppProps } from 'next/app';
 import { useState } from 'react';
 import '../styles/globals.css';
+import '../styles/globals.scss';
 import theme from '../theme/theme';
 
 function MyApp({ Component, pageProps }: AppProps)
