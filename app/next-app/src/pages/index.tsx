@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Demo from '../components/demo';
 
 
 const Home: NextPage = (props: any) =>
@@ -7,8 +6,7 @@ const Home: NextPage = (props: any) =>
 
     return (
 
-        <div>
-            <Demo />
+        <div style={{ fontFamily: 'Proxima Nova', fontSize: "50px" }}>
             hahah我是index
         </div>
 
