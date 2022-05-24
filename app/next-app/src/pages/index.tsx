@@ -6,7 +6,7 @@ const Home: NextPage = (props: any) =>
 
     return (
 
-        <div style={{ fontFamily: 'Proxima Nova', fontSize: "50px" }}>
+        <div style={{ fontFamily: 'Greycliff CF', fontSize: "50px" }}>
             hahah我是index
         </div>
 
