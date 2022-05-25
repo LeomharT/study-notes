@@ -8,26 +8,30 @@ function maxEnvelopes(envelopes: number[][]): number
         return a[0] - b[0];
     });
 
-    let index = 0;
+    let index = envelopes.length - 1;
 
-    while (index < envelopes.length)
+    while (index >= 0)
     {
         let outer: number[] = envelopes[index];
         const evs: number[][] = [];
-        for (let i = index + 1; i < envelopes.length; i++)
+        for (let i = index; i >= 0; i--)
         {
-            if (outer[0] < envelopes[i][0] && outer[1] < envelopes[i][1])
+            if (outer[0] > envelopes[i][0] && outer[1] > envelopes[i][1])
             {
                 evs.push(outer);
                 outer = envelopes[i];
             }
         }
         evs.push(outer);
-        index++;
-
-        russianDolls.push(evs);
-
-
+        index--;
+        if (!russianDolls.length)
+        {
+            russianDolls.push(evs);
+        }
+        if (russianDolls.length && russianDolls[0].length < evs.length)
+        {
+            russianDolls[0] = evs;
+        }
     }
     console.log(envelopes);
     console.log(russianDolls);
@@ -39,5 +43,5 @@ function maxEnvelopes(envelopes: number[][]): number
 
 
 console.log(maxEnvelopes(
-    [[2, 100], [3, 200], [4, 300], [5, 500], [5, 400], [5, 250], [6, 370], [6, 360], [7, 380]]
+    [[46, 89], [50, 53], [52, 68], [72, 45], [77, 81]]
 ));
