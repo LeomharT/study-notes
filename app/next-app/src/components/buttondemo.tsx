@@ -11,7 +11,9 @@ export default function Buttondemo()
     return (
         <div>
             <Link href='#'>
-                <Button component='a'>Normal Button</Button>
+                <Button component='a' styles={(theme) => ({
+
+                })}>Normal Button</Button>
             </Link>
             <ActionIcon
                 variant="outline"
