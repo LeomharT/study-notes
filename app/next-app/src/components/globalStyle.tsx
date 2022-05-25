@@ -10,6 +10,10 @@ export default function GlobalStyle()
             {
                 body: {
                     background: theme.colors.blue[4],
+                },
+                div: {
+                    fontSize: '2rem',
+                    color: theme.colors.red[5]
                 }
             },
             {
