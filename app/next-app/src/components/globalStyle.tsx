@@ -9,7 +9,7 @@ export default function GlobalStyle()
         <Global styles={(theme) => ([
             {
                 body: {
-                    background: theme.colors.blue[2],
+                    background: theme.colors.blue[4],
                 }
             },
             {
