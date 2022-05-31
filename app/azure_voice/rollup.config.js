@@ -1,13 +1,14 @@
+import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
-
 export default {
     plugins: [
         nodeResolve({
-            preferBuiltins: false
-        })
+            preferBuiltins: true
+        }),
+        commonjs()
     ],
     input: 'build/index.js',
     output: {
-        file: './bundle.js',
+        file: 'bundle.js',
     }
 }
