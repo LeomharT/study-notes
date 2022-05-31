@@ -1,9 +1,7 @@
 import fs from 'fs';
 import fetch from 'node-fetch';
 import { v4 } from 'uuid';
-import { WebSocket, WebSocketServer } from 'ws';
-
-console.log(WebSocketServer);
+import { RawData, WebSocket } from 'ws';
 
 const GetAuthorization = async (): Promise<string> =>
 {
@@ -24,10 +22,17 @@ const GetXTime = (): string =>
     return new Date().toISOString();
 };
 
+const SendMessage = async (wws: WebSocket, message: string): Promise<void> =>
+{
+    return new Promise((reslove, reject) =>
+    {
+        wws.send(message, () => reslove());
+    });
+};
 
 (async (): Promise<void> =>
 {
-    const XConnectionId = v4().toUpperCase().replace(/-/g, '');
+    const XConnectionId = v4().toUpperCase();
 
     const Authorization = await GetAuthorization();
 
@@ -46,48 +51,49 @@ const GetXTime = (): string =>
         const message_1 = `Path: speech.config\r\nX-RequestId: ${XConnectionId}\r\nX-Timestamp: ${GetXTime()}\r\nContent-Type: application/json\r\n\r\n{"context":{"system":{"name":"SpeechSDK","version":"1.19.0","build":"JavaScript","lang":"JavaScript","os":{"platform":"Browser/Linux x86_64","name":"Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0","version":"5.0 (X11)"}}}}`;
 
         console.log('Send 1');
-        wws.send(message_1);
+        await SendMessage(wws, message_1);
 
         const message_2 = `Path: synthesis.context\r\nX-RequestId: ${XConnectionId}\r\nX-Timestamp: ${GetXTime()}\r\nContent-Type: application/json\r\n\r\n{"synthesis":{"audio":{"metadataOptions":{"sentenceBoundaryEnabled":false,"wordBoundaryEnabled":false},"outputFormat":"audio-16khz-32kbitrate-mono-mp3"}}}`;
 
         console.log('Send 2');
-        wws.send(message_2);
+        await SendMessage(wws, message_2);
 
         const SSML = `
         <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
             <voice name="zh-CN-XiaoxiaoNeural">
-                <mstts:express-as style="general">
+                <mstts:express-as style="sad">
                     <prosody rate="0%" pitch="0%">
-                    我是一条懒汉
+                        我叫廖正扬，我是一条懒汉,我是一个傻逼
                     </prosody>
                 </mstts:express-as>
             </voice>
-        </speak>`;
+        </speak>
+        `;
 
         const message_3 = `Path: ssml\r\nX-RequestId: ${XConnectionId}\r\nX-Timestamp: ${GetXTime()}\r\nContent-Type: application/ssml+xml\r\n\r\n${SSML}`;
 
         console.log('Send 3');
-        wws.send(message_3);
+        await SendMessage(wws, message_3);
 
         let final_data = Buffer.alloc(0);
 
-        wws.addEventListener('message', (event) =>
+        wws.on('message', (data: RawData, isBinary: boolean) =>
         {
-            const { data } = event;
-
-            const dataType = typeof data;
-
-            if (dataType === 'string')
+            if (!isBinary)
             {
-                if ((data as string).indexOf('Path:turn.end'))
+                let str = data.toString();
+                if (str.includes("Path:turn.end"))
                 {
-                    fs.writeFileSync('test.mp3', final_data);
+                    fs.writeFileSync('./test.mp3', final_data);
+
                     wws.close();
                 }
             }
-            if (dataType === 'object')
+            if (isBinary)
             {
-                final_data = Buffer.concat([(data as Buffer), final_data], (data as Buffer).length + final_data.length);
+                const index = data.toString().indexOf("Path:audio") + 10;
+                const cmbData = data.slice(index + 2);
+                final_data = Buffer.concat([final_data, (cmbData as Buffer)], final_data.length + (cmbData as Buffer).length);
             }
         });
     }
