@@ -12,5 +12,6 @@ export default {
     output: {
         inlineDynamicImports: true,
         file: 'bundle.mjs',
-    }
+    },
+    context: "globalThis"
 }
