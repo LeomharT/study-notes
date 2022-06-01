@@ -1,3 +1,4 @@
+import fs from 'fs';
 import fetch from 'node-fetch';
 import { v4 } from 'uuid';
 import { RawData, WebSocket } from 'ws';
@@ -83,7 +84,7 @@ const SendMessage = async (wws: WebSocket, message: string): Promise<void> =>
                 let str = data.toString();
                 if (str.includes("Path:turn.end"))
                 {
-                    // fs.writeFileSync('./test.mp3', final_data);
+                    fs.writeFileSync('./test.mp3', final_data);
 
                     wws.close();
                 }

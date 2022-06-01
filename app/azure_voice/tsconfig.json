@@ -68,6 +68,7 @@
     "exclude": [
         "node_modules",
         "./build/*",
-        "rollup.config.js"
+        "rollup.config.js",
+        "bundle.js"
     ]
 }
