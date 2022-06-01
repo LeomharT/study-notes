@@ -1,6 +1,6 @@
 import fs from 'fs';
 import fetch from 'node-fetch';
-import { v4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { RawData, WebSocket } from 'ws';
 
 const GetAuthorization = async (): Promise<string> =>
@@ -32,7 +32,7 @@ const SendMessage = async (wws: WebSocket, message: string): Promise<void> =>
 
 (async (): Promise<void> =>
 {
-    const XConnectionId = v4().toUpperCase();
+    const XConnectionId = uuidv4().toUpperCase();
 
     const Authorization = await GetAuthorization();
 
@@ -63,7 +63,7 @@ const SendMessage = async (wws: WebSocket, message: string): Promise<void> =>
             <voice name="zh-CN-XiaoxiaoNeural">
                 <mstts:express-as style="sad">
                     <prosody rate="0%" pitch="0%">
-                        我叫廖正扬，我是一条懒汉,我是一个傻逼,哈哈哈！
+                        我叫廖正扬，我是一条懒汉,我是一个傻逼,呜呜呜呜呜！
                     </prosody>
                 </mstts:express-as>
             </voice>
