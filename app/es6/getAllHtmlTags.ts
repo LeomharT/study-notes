@@ -1,23 +1,21 @@
-import cheerio from 'cheerio';
-import request from "request";
+import { load } from 'cheerio';
+import fetch from 'node-fetch';
 
+// request('https://www.amazon.cn', (err, res, body) =>
+// {
+//     if (err) throw new Error(err);
 
+//     const $ = cheerio.load(body);
 
-request('https://www.amazon.cn', (err, res, body) =>
-{
-    if (err) throw new Error(err);
+//     //@ts-ignore
+//     const tags = Array.from($('*')).map(t => t.tagName);
 
-    const $ = cheerio.load(body);
+//     const set = new Set(tags);
 
-    //@ts-ignore
-    const tags = Array.from($('*')).map(t => t.tagName);
+//     const mostTag = MostTag(tags);
+//     console.table(mostTag.splice(0, 3));
 
-    const set = new Set(tags);
-
-    const mostTag = MostTag(tags);
-    console.table(mostTag.splice(0, 3));
-
-});
+// });
 const MostTag = (tags: string[]) =>
 {
     let memo = {} as { [index: string]: number; };
@@ -33,3 +31,21 @@ const MostTag = (tags: string[]) =>
     }
     return Object.entries(memo).sort((a, b) => b[1] - a[1]);
 };
+
+
+const FetchTags = async () =>
+{
+    let res = await fetch('https://www.kujiale.cn/pub/dtpl/home?kpm=qkWL.53f34adc0cc0bf09.f26edf1.1651709316842');
+
+    const $ = load(await res.text());
+
+    //@ts-ignore
+    let tags = Array.from($('*')).map(t => t.tagName);
+
+    let mostTag = MostTag(tags);
+
+    console.table(mostTag.splice(0, 3));
+};
+
+
+FetchTags();
