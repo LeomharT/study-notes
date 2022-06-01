@@ -11,6 +11,6 @@ export default {
     input: 'build/index.js',
     output: {
         inlineDynamicImports: true,
-        file: 'bundle.cjs',
+        file: 'bundle.mjs',
     }
 }
