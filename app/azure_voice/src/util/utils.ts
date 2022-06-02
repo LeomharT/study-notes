@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import { WebSocket } from 'ws';
 
 export const GetAuthorization = async (): Promise<string> =>
