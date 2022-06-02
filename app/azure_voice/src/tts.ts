@@ -87,7 +87,7 @@ app.get('/GetAzureVoice', async (req: Request, res: Response): Promise<void> =>
                 //可以使用end发送Buffer
                 res.end(final_data);
 
-                //保存为文件然后读取文件的方法
+                //保存为文件然后读取文件的方法 => 这个方法在前端也是读取res.blob()获取数据然后URL转为资源
                 // fs.writeFileSync('./result.mp3', final_data);
 
                 // const stat = fs.readFileSync('./result.mp3');
