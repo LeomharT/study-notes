@@ -1,14 +1,20 @@
+import { Request, Response } from "express";
 import fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
 import { RawData, WebSocket } from 'ws';
-import { GetAuthorization, GetXTime, SendMessage } from './util/utils';
+//@ts-ignore
+import App from './app/app.ts';
+//@ts-ignore
+import { GetAuthorization, GetXTime, SendMessage } from './util/utils.ts';
 
 
+const { app } = App.GetInstance();
 
 
-
-
-
+app.get('/GetAzureVoice', (req: Request, res: Response) =>
+{
+    console.log(req.url);
+});
 
 (async (): Promise<void> =>
 {
@@ -77,4 +83,4 @@ import { GetAuthorization, GetXTime, SendMessage } from './util/utils';
             }
         });
     }
-})();
+});
