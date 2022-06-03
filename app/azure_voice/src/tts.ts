@@ -28,6 +28,8 @@ app.get('/GetAzureVoice', async (req: Request, res: Response): Promise<void> =>
 
     const url = `wss://eastus.tts.speech.microsoft.com/cognitiveservices/websocket/v1?Authorization=${Authorization}&X-ConnectionId=${XConnectionId}`;
 
+    const from: 'zh-CN' | 'en-US' = /[\u4E00-\u9FA5]+/g.test(trans_word.trim()) ? 'zh-CN' : 'en-US';
+
     const wws = new WebSocket(url);
 
     const connect = new Promise((reslove, reject) =>
@@ -54,7 +56,7 @@ app.get('/GetAzureVoice', async (req: Request, res: Response): Promise<void> =>
 
     const SSML = `
         <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
-            <voice name="zh-CN-XiaoxiaoNeural">
+            <voice name="${from}-${from === 'zh-CN' ? 'XiaoxiaoNeural' : 'JennyNeural'}">
                 <mstts:express-as style="normal">
                     <prosody rate="0%" pitch="0%">
                         ${trans_word}
