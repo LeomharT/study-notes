@@ -43,14 +43,14 @@ function ShowPopover(popover, e)
 {
     HidePopover(popover);
 
-    popover.style.opacity = 1;
-    popover.style.transform = 'scale(1)';
-
     const { left, width, top } = window.getSelection().getRangeAt(0).getBoundingClientRect();
 
     popover.style.left = left + ((width / 2) - (popover.clientWidth / 2)) + 'px';
 
     popover.style.top = (window.scrollY) + top - popover.clientHeight - 15 + 'px';
+
+    popover.style.opacity = 1;
+    popover.style.transform = 'scale(1)';
 };
 
 document.addEventListener('mouseup', async (e) =>
@@ -68,14 +68,13 @@ document.addEventListener('mouseup', async (e) =>
         return;
     }
 
-    console.log(window.getSelection().getRangeAt(0).getBoundingClientRect());
-    console.log(window.scrollY);
+
+    popover.innerHTML = window.getSelection().toString();
 
     ShowPopover(popover, e);
 
 
 
-    popover.innerHTML = window.getSelection().toString();
 
 
 
