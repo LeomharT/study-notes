@@ -36,6 +36,7 @@ window.addEventListener('load', e =>
 
 function HidePopover(popover)
 {
+    if (!popover) return;
     popover.style.opacity = 0;
     popover.style.transform = 'scale(.5)';
 };
@@ -67,7 +68,7 @@ document.addEventListener('mouseup', async (e) =>
         HidePopover(popover);
         return;
     }
-
+    if (!popover) return;
 
     popover.innerHTML = window.getSelection().toString();
 

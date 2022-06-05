@@ -19,11 +19,11 @@
 
 #trans-popover::after {
     position: absolute;
-    bottom: calc(0px - 10px);
-    left: calc(50% - 10px);
-    border: 10px solid transparent;
-    border-bottom-color: white;
-    border-right-color: white;
+    bottom: calc(0px - 5px);
+    left: calc(50% - 5px);
+    border: 5px solid transparent;
+    border-bottom-color: red;
+    border-right-color: red;
     display: inline-block;
     transform: rotate(45deg);
     content: '';
