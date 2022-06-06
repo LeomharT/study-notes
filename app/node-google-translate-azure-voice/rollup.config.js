@@ -15,6 +15,7 @@ export default {
     ],
     input: './src/index.ts',
     output: {
+        inlineDynamicImports: true,
         file: './bundle.mjs',
         format: 'es'
     }
