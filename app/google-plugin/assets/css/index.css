@@ -40,6 +40,19 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    margin: 0;
+}
+
+#trans-popover p button {
+    background-color: transparent;
+    background-image: none;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
 }
 
 #trans-popover svg {
