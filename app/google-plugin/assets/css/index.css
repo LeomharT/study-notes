@@ -8,10 +8,11 @@
     min-width: 20px;
     min-height: 10px;
     position: absolute;
-    background-color: rebeccapurple;
+    background-color: white;
     opacity: 0;
     transform: scale(.5);
     transition: opacity .1s ease-out .1s, transform .1s ease-out .1s;
+    box-shadow: 0 5px 10px rgb(16 22 26 / 15%);
     box-sizing: border-box;
     padding: 5px 10px;
     z-index: 99;
@@ -22,8 +23,8 @@
     bottom: calc(0px - 5px);
     left: calc(50% - 5px);
     border: 5px solid transparent;
-    border-bottom-color: red;
-    border-right-color: red;
+    border-bottom-color: white;
+    border-right-color: white;
     display: inline-block;
     transform: rotate(45deg);
     content: '';
@@ -34,45 +35,14 @@
     display: none;
 }
 
-.PopoverCard {
-    font-family: none !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    position: absolute;
-    box-sizing: border-box;
-    padding: 10px;
-    width: fit-content;
-    transition: opacity .1s ease-out .1s, transform .1s ease-out .1s;
-    transform-origin: bottom center;
-    box-shadow: 0 5px 10px rgb(16 22 26 / 15%);
-    background-color: rgb(255, 255, 255);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(240, 240, 240);
-    border-image: initial;
-    border-radius: 2px;
-    z-index: 999;
+#trans-popover p {
+    width: 100%;
     display: flex;
-    flex-flow: column-reverse nowrap;
-    opacity: 0;
-    transform: scale(.5);
+    align-items: center;
+    gap: 10px;
 }
 
-.PopoverCard p {
-    margin: 0;
-    margin-bottom: 5px;
-    font-size: 16px !important;
-    font-weight: bold !important;
-}
-
-.PopoverCard p span {
-    font-size: 16px !important;
-    font-weight: bold !important;
-    color: #738694;
-}
-
-.PopoverCard p button {
-    background: none;
-    border: none;
-    padding: 0;
+#trans-popover svg {
+    width: 20px;
+    height: 20px;
 }

@@ -22,7 +22,10 @@
                 "https://*.google.com/*",
                 "https://*.google.com.hk/*",
                 "https://*.baidu.com/*",
-                "https://*.aliyun.com/*"
+                "https://*.aliyun.com/*",
+                "http://localhost:*/*",
+                "http://115.29.201.244:*/*",
+                "http://47.107.42.46:*/*"
             ],
             // 多个JS按顺序注入
             "js": [
