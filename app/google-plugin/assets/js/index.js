@@ -41,7 +41,7 @@ class Debounce
 
 window.addEventListener('load', e =>
 {
-    //这个meta会主动将http请求变为https
+    //这个meta会主动将http请求变为https  http => https
     const meta = document.createElement('meta');
     meta.httpEquiv = 'Content-Security-Policy';
     meta.content = 'upgrade-insecure-requests';
