@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import App from "./app/app.js";
+import { GetLanguage } from "./util/util.js";
 
 
 const { app } = App.GetInstance();
@@ -16,7 +17,7 @@ const userAgents: string[] = [
 
 const GetUriHeader = (trans_word: string) =>
 {
-    let from: string = /[\u4E00-\u9FA5]+/g.test(trans_word.trim()) ? 'zh-CN' : 'en';
+    let from: string = GetLanguage(trans_word) ? 'zh-CN' : 'en';
 
     let uri = '';
     uri = "https://translate.goo";
