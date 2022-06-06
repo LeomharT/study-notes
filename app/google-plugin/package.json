@@ -1,0 +1,29 @@
+{
+    "name": "google-extension-translate-azure-voice",
+    "version": "1.0.4",
+    "description": "this is a translate google extension",
+    "main": "./index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "google-extensions",
+        "tts",
+        "fetch",
+        "javascript"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://gitee.com/LeomharT/study-notes.git"
+    },
+    "author": "LeomharT",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://gitee.com/LeomharT/study-notes/issues"
+    },
+    "homepage": "https://gitee.com/LeomharT/study-notes",
+    "files": [
+        "assets",
+        "manifest.json"
+    ]
+}
