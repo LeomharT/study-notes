@@ -67,3 +67,7 @@ common/autoinstallers/*/.npmrc
 
 # Heft
 .heft
+
+
+
+**/bundle.**
