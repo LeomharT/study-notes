@@ -76,7 +76,7 @@ function ShowPopover(popover, e)
 {
     HidePopover(popover);
 
-    const { left, width, top } = window.getSelection().getRangeAt(0)?.getBoundingClientRect();
+    const { left, width, top } = window.getSelection()?.getRangeAt(0)?.getBoundingClientRect();
 
     popover.style.left = left + ((width / 2) - (popover.clientWidth / 2)) + 'px';
 
