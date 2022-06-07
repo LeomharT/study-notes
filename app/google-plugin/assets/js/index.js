@@ -124,8 +124,8 @@ document.addEventListener('mouseup', async (e) =>
     popover.innerHTML = '';
 
     popover.insertAdjacentHTML('afterbegin', `
-        <p>原:${origin_word} <button id='origin_btn'>${audioIcon}</button></p>
-        <p>译:${translate} <button id='translate_btn'>${audioIcon}</button></p>
+        <p>原: ${origin_word} <button id='origin_btn'>${audioIcon}</button></p>
+        <p>译: ${translate} <button id='translate_btn'>${audioIcon}</button></p>
     `);
 
     const d = new Debounce();
