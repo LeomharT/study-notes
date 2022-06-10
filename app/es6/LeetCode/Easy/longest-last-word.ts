@@ -10,6 +10,4 @@ function lengthOfLastWord(s: string): number
 };
 
 
-
-
 console.log(lengthOfLastWord("Today is a nice day"));
