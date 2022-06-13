@@ -81,3 +81,17 @@ useEffect(()=>
 },[FetchDataAsync])
 ```
 
+如果使用函数组件时需要在组件卸载时做一些例如清除定时器,取消订阅等操作怎么办呢,在 `useEffect()` 中使用return()=>即可
+达到类似类组件中组件卸载的功能.
+
+```js
+useEffect(()=>
+{
+  Do something when compoenet apear....
+
+  return()=>{
+    Do something when component gone...
+  }
+},[dep...]);
+
+```
