@@ -35,6 +35,7 @@
 }
 
 #trans-popover p {
+    font-size: 16px !important;
     width: 100%;
     display: flex;
     align-items: center;
