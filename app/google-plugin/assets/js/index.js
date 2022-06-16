@@ -2,7 +2,7 @@
  *  ✨antd.Button是对象啊,不是原始Element类型谢谢!✨xe
  */
 
-const HOST = 'https://liaozhengyang.zyz:626';
+const HOST = 'https://liaozhengyang.xyz:626';
 
 const RequestURL = {
     trans_word: HOST + '/TransWord',
