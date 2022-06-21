@@ -3,19 +3,24 @@ import ListNode from '../../util/ListNode';
 
 function deleteDuplicates(head: ListNode | null): ListNode | null
 {
-    let curre = head;
+    if (!head) return head;
 
-    while (curre)
+    if (head.next)
     {
-        if (curre.next && curre.val === curre.next.val)
+        if (head.val === head.next.val)
         {
-            curre.next = curre.next.next;
+            head.next = head.next.next;
+            deleteDuplicates(head);
+            return head;
         } else
         {
-            curre = curre.next;
+            deleteDuplicates(head.next);
+            return head;
         }
+    } else
+    {
+        return head;
     }
 
-    return head;
 };
 deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2))));
