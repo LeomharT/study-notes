@@ -107,7 +107,7 @@ document.addEventListener('mouseup', async (e) =>
 
     const selected_text = window.getSelection().toString().trim();
 
-    if (!selected_text || selected_text === '' || selected_text.length > 20)
+    if (!selected_text || selected_text === '' || selected_text.length > 60)
     {
         HidePopover(popover);
         return;
