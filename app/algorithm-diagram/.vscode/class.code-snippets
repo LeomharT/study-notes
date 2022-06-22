@@ -1,0 +1,23 @@
+{
+    "类": {
+        "prefix": "class",
+        "body": [
+            "export class $TM_FILENAME_BASE",
+            "{",
+            "    constructor(){}",
+            "}"
+        ],
+        "description": "类"
+    },
+    "CAD实体类": {
+        "prefix": "class",
+        "body": [
+            "@Factory",
+            "export class $TM_FILENAME_BASE extends Entity",
+            "{",
+            "    constructor() { super(); }",
+            "}"
+        ],
+        "description": "CAD实体类"
+    },
+}

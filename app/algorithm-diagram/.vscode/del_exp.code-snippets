@@ -1,0 +1,18 @@
+{
+    "DelExpStart": {
+        "scope": "typescript",
+        "prefix": "DelExpStart",
+        "body": [
+            "//del_exp_start",
+        ],
+        "description": "DelExpStart"
+    },
+    "DelExpEnd": {
+        "scope": "typescript",
+        "prefix": "DelExpEnd",
+        "body": [
+            "//del_exp_end",
+        ],
+        "description": "DelExpEnd"
+    }
+}

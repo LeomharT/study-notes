@@ -1,0 +1,15 @@
+{
+    "实现命令": {
+        "prefix": "command",
+        "body": [
+            "export class Command_$TM_FILENAME_BASE implements Command",
+            "{",
+            "    async exec()",
+            "    { ",
+            "      $1",
+            "    }",
+            "}"
+        ],
+        "description": "实现命令"
+    }
+}

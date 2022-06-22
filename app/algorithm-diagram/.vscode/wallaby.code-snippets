@@ -1,0 +1,18 @@
+{
+    "fileony": {
+        "scope": "typescript",
+        "prefix": "fileony",
+        "body": [
+            "// file.only",
+        ],
+        "description": "仅测试本文件"
+    },
+    "fileskip": {
+        "scope": "typescript",
+        "prefix": "fileony",
+        "body": [
+            "// file.skip",
+        ],
+        "description": "跳过本文件"
+    },
+}

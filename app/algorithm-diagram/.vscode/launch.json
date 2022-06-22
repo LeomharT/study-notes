@@ -1,0 +1,91 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Chrome调试",
+            "type": "chrome",
+            "request": "launch",
+            "disableNetworkCache": false,
+            "url": "http://localhost:7778",
+            "webRoot": "${workspaceFolder}",
+            "skipFiles": [
+                "*.dll.js" //跳过.js文件的调试,避免调试堆栈进入js文件
+            ]
+        },
+        {
+            "name": "Chrome调试(使用生产api)",
+            "type": "chrome",
+            "request": "launch",
+            "disableNetworkCache": false,
+            "url": "http://localhost:7778/?server=api",
+            "webRoot": "${workspaceFolder}",
+            "skipFiles": [
+                "*.dll.js" //跳过.js文件的调试,避免调试堆栈进入js文件
+            ]
+        },
+        //Ref: https://github.com/Microsoft/vscode-recipes/blob/master/debugging-jest-tests/.vscode/launch.json
+        {
+            "name": "Jest 所有文件",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+            "args": [
+                "--runInBand"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.js"
+            ]
+        },
+        {
+            "name": "Jest 当前文件",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+            "args": [
+                "${fileBasename}"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "smartStep": false,
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.js"
+            ]
+        },
+        //ref:https://gist.github.com/cecilemuller/2963155d0f249c1544289b78a1cdd695?permalink_comment_id=4101212#gistcomment-4101212
+        {
+            "name": "运行 当前TS文件",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "${relativeFile}"
+            ],
+            "runtimeArgs": [
+                "--nolazy",
+                "-r",
+                "ts-node/register/transpile-only",
+            ],
+            "cwd": "${workspaceFolder}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "分析ts文件依赖树",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "./utils/dep-tree.ts",
+                "${file}"
+            ],
+            "runtimeArgs": [
+                "--nolazy",
+                "-r",
+                "ts-node/register/transpile-only"
+            ],
+            "cwd": "${workspaceFolder}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}

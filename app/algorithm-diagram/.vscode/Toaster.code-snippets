@@ -1,0 +1,13 @@
+{
+    "AppToaster": {
+        "prefix": "AppToaster",
+        "body": [
+            "AppToaster.show({",
+            "message: \"这是测试环境!所产生的数据可能被清除!\",",
+            "timeout: 5000,",
+            "intent: Intent.WARNING,",
+            "});"
+        ],
+        "description": "弹出提示"
+    }
+}

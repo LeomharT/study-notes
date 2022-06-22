@@ -1,0 +1,17 @@
+{
+    "reactContex": {
+        "scope": "typescriptreact",
+        "prefix": "reactContex",
+        "body": [
+            "/**",
+            "* @description 这里有declare关键字,只是用于声明this.context的类型,无需也无法赋值",
+            "*/",
+            "declare context: ${1|Dialog|};",
+            "/**",
+            "* @description 这个赋值是必须的否则无法获取到provider的内容,提供createContext()",
+            "*/",
+            "static contextType = ${1|Dialog|}Context;"
+        ],
+        "description": "React Context 声明"
+    },
+}

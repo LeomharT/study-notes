@@ -1,0 +1,26 @@
+{
+    "CAD文件序列化": {
+        "prefix": "file",
+        "body": [
+            "    //#region -------------------------File-------------------------",
+            "    //对象从文件中读取数据,初始化自身",
+            "    protected override _ReadFile(file: CADFiler)",
+            "    {",
+            "        let ver = file.Read();",
+            "        super._ReadFile(file);",
+            "    }",
+            "    //对象将自身数据写入到文件.",
+            "    override WriteFile(file: CADFiler)",
+            "    {",
+            "        file.Write(1);",
+            "        super.WriteFile(file);",
+            "    }",
+            "    //局部撤销",
+            "    override ApplyPartialUndo(undoData: CADObject)",
+            "    {",
+            "        super.ApplyPartialUndo(undoData);",
+            "    }",
+            "    //#endregion"
+        ]
+    },
+}

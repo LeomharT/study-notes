@@ -1,0 +1,27 @@
+{
+    "实体绘制": {
+        "prefix": "draw",
+        "body": [
+            "//#region Draw",
+            "InitDrawObject(renderType: RenderType = RenderType.Wireframe)",
+            "{",
+            "    let obj = new Object3D();",
+            "    if (renderType === RenderType.Physical)",
+            "    {",
+            "    ",
+            "    }",
+            "    return obj;",
+            "}",
+            "",
+            "UpdateDrawObject(renderType: RenderType, obj: Object3D)",
+            "{",
+            "    if (renderType === RenderType.Physical)",
+            "    {",
+            "    ",
+            "    }",
+            "}",
+            "//#endregion"
+        ],
+        "description": "实体绘制代码"
+    }
+}

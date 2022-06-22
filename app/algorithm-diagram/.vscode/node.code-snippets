@@ -1,0 +1,44 @@
+{
+    "importfs": {
+        "scope": "typescript",
+        "prefix": "importfs",
+        "body": [
+            "import * as fs from \"fs-extra-plus\";",
+        ],
+        "description": "导入fs"
+    },
+    "importpath": {
+        "scope": "typescript",
+        "prefix": "importpath",
+        "body": [
+            "import * as path from \"path\";",
+        ],
+        "description": "importpath"
+    },
+    "importSetTimeOut": {
+        "scope": "typescript",
+        "prefix": "importnode",
+        "body": [
+            "import { setTimeout } from 'timers/promises';",
+        ],
+        "description": "importSetTimeOut"
+    },
+    "importExec": {
+        "scope": "typescript",
+        "prefix": "importExec",
+        "body": [
+            "import * as child_process from \"child_process\"",
+            "import util from \"util\";",
+            "const exec = util.promisify(child_process.exec);"
+        ],
+        "description": "importExec"
+    },
+    "importall": {
+        "scope": "typescript",
+        "prefix": "importall",
+        "body": [
+            "import * as ${0} from \"${0}\"",
+        ],
+        "description": "importall"
+    },
+}

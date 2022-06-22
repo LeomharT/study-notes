@@ -1,0 +1,22 @@
+{
+    "单选": {
+        "scope": "typescript",
+        "prefix": "entsel",
+        "body": [
+            "let ${1:enRes} = await app.Editor.GetEntity({ Filter: { filterTypes: [${2:Polyline}] } });",
+            "if ($1.Status !== PromptStatus.OK) return;",
+            "let ${3:pl} = $1.Entity as $2;"
+        ],
+        "description": "单选"
+    },
+    "多选": {
+        "scope": "typescript",
+        "prefix": "ssget",
+        "body": [
+            "let ${1:ssRes} = await app.Editor.GetSelection({ Filter: { filterTypes: [${2:Polyline}] } });",
+            "if ($1.Status !== PromptStatus.OK) return;",
+            "let ${3:ents} = $1.SelectSet.SelectEntityList;"
+        ],
+        "description": "多选"
+    }
+}

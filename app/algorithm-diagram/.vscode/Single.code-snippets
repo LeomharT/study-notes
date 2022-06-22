@@ -1,0 +1,9 @@
+{
+    "Instance": {
+        "prefix": "Instance",
+        "body": [
+            "private static _SingleInstance: $TM_FILENAME_BASE;\r\nstatic GetInstance(): $TM_FILENAME_BASE\r\n{\r\n    if (this._SingleInstance) return this._SingleInstance;\r\n    this._SingleInstance = new $TM_FILENAME_BASE;\r\n    return this._SingleInstance;\r\n}"
+        ],
+        "description": "单例模式"
+    }
+}
