@@ -1,14 +1,9 @@
-import { configure, makeObservable, observable } from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { Component } from 'react';
 import UserStore from '../stores/UserStore';
 
-/**
- * Mobx configure
- */
-configure({
-    enforceActions: 'always'
-});
+
 class App extends Component
 {
     constructor(props: any)
@@ -25,13 +20,13 @@ class App extends Component
     UserStore: UserStore = UserStore.GetInstance();
 
 
-    MakeChange = () =>
+    MakeChange = action(() =>
     {
         this.name++;
         console.log(this.name);
         this.UserStore.person.age++;
         this.UserStore.person.name = '🐎';
-    };
+    });
 
     render()
     {
