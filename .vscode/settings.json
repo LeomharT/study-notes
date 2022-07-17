@@ -1,0 +1,30 @@
+{
+    "editor.tabSize": 4,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.format.semicolons": "insert",
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+    "javascript.format.enable": true,
+    "javascript.format.semicolons": "insert",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "vetur.format.enable": true,
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.defaultFormatter.css": "none",
+    "vetur.format.defaultFormatter.scss": "none",
+    "vetur.format.defaultFormatter.less": "none",
+    "vetur.format.defaultFormatter.ts": "vscode-typescript",
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    //保存时
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true,
+    }
+}

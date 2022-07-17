@@ -15,7 +15,7 @@ function majorityElement(nums: number[]): number
 
     const result = [...memo].sort((a, b) => b[1] - a[1]);
     console.log(result);
-    return result[0][1];
+    return result[0][0];
 };
 
 
