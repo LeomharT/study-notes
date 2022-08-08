@@ -16,13 +16,12 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "vetur.format.enable": true,
-    "vetur.format.options.tabSize": 4,
-    "vetur.format.defaultFormatter.css": "none",
-    "vetur.format.defaultFormatter.scss": "none",
-    "vetur.format.defaultFormatter.less": "none",
-    "vetur.format.defaultFormatter.ts": "vscode-typescript",
-    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    //注释代码提示
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "on",
+        "strings": "on"
+    },
     //保存时
     "editor.codeActionsOnSave": {
         "source.organizeImports": true,
