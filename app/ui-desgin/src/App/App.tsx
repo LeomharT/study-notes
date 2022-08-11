@@ -1,7 +1,7 @@
 import { ColorScheme } from '@mantine/core';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import RectToBoard from '../R2B_Model/components/ReacToBoard/RectToBoard';
+import RectToBoard from '../panel/components/ReacToBoard/RectToBoard';
 
 export default function App()
 {

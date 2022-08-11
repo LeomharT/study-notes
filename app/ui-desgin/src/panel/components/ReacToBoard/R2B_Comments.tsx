@@ -1,8 +1,8 @@
-import { Column, EditableCell2, Table2 } from '@blueprintjs/table';
+import { EditableCell2, Table2 } from '@blueprintjs/table';
 import "@blueprintjs/table/lib/css/table.css";
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 @observer
 export default class R2B_Comments extends Component
@@ -34,8 +34,8 @@ export default class R2B_Comments extends Component
         return (
             <div className='R2B_Comments'>
                 <Table2 numRows={10} columnWidths={[150, 490]}>
-                    <Column name="备注名" cellRenderer={this.RenderCell} />
-                    <Column name="备注信息" cellRenderer={this.RenderCell} />
+                    {/* <Column name="备注名" cellRenderer={this.RenderCell} />
+                    <Column name="备注信息" cellRenderer={this.RenderCell} /> */}
                 </Table2>
             </div >
         );
