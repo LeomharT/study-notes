@@ -1,7 +1,7 @@
 import { ColorScheme } from '@mantine/core';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import RectToBoard from '../panel/components/ReacToBoard/RectToBoard';
+import RectToBoard from '../feature/panel/components/ReacToBoard/RectToBoard';
 
 export default function App()
 {
@@ -10,8 +10,7 @@ export default function App()
         setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
     return (
-
-        <div className='App'>
+        <div className='App' >
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<div>hello</div>} />
@@ -22,6 +21,6 @@ export default function App()
                     {/* 可以写成嵌套的模式 */}
                 </Routes>
             </BrowserRouter>
-        </div>
+        </div >
     );
 }
