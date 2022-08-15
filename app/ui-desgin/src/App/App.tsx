@@ -1,6 +1,7 @@
 import { ColorScheme } from '@mantine/core';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Autocomplete from '../feature/autocomplete/';
 import RectToBoard from '../feature/panel/components/ReacToBoard/RectToBoard';
 
 export default function App()
@@ -15,6 +16,7 @@ export default function App()
                 <Routes>
                     <Route path='/' element={<div>hello</div>} />
                     <Route path='/r2bbord' element={<RectToBoard />} />
+                    <Route path='/autocomplete' element={<Autocomplete />} />
                     {/** 现在没有模糊匹配了exact */}
                     {/* <Route path='/mantine' element={<Mantine />} />
                         <Route path='/mantine/:id' element={<Mantine />} /> */}
