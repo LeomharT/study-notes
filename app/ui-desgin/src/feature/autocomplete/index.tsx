@@ -1,6 +1,7 @@
 import { Classes, InputGroup, Menu } from "@blueprintjs/core";
 import { MenuItem2 } from "@blueprintjs/popover2";
 import React, { ChangeEvent, useMemo, useState } from "react";
+import { Route, Routes } from "react-router";
 import useDebounce from "../../hooks/useDebounce";
 import useToggle from "../../hooks/useToggle";
 import './assets/scss/autoComplete.scss';
@@ -54,6 +55,9 @@ export default function AutoComplete()
                     }} />)}
                 </Menu>
             }
+            <Routes>
+                <Route path="/no" element={<div>ok</div>} />
+            </Routes>
         </div>
     );
 }

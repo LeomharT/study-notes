@@ -15,11 +15,11 @@ export default function App()
                     <Route path='/' element={
                         <div>
                             <p><Link to={'/r2bbord'}>r2bbord</Link></p>
-                            <p><Link to={'/autocomplete'}>autocomplete</Link></p>
+                            <p><Link to={'/autocomplete'} state={{ address: "giao" }}>autocomplete</Link></p>
                         </div>}
                     />
                     <Route path='/r2bbord' element={<RectToBoard />} />
-                    <Route path='/autocomplete' element={<Autocomplete />} />
+                    <Route path='/autocomplete/*' element={<Autocomplete />} />
                     {/** 现在没有模糊匹配了exact */}
                     {/* <Route path='/mantine' element={<Mantine />} />
                         <Route path='/mantine/:id' element={<Mantine />} /> */}
