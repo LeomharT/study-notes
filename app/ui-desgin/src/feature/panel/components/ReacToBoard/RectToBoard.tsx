@@ -1,11 +1,11 @@
 import { Button, ButtonGroup, Card, Classes, EditableText, HTMLSelect, Intent, Label, Tab, Tabs, Tooltip } from '@blueprintjs/core';
 import { observer } from 'mobx-react';
-import React, { Component, createRef, RefObject } from 'react';
+import { Component, createRef, RefObject } from 'react';
 import '../../assets/scss/index.scss';
-import R2B_Cabinet from './R2B_Cabinet';
-import R2B_Comments from './R2B_Comments';
-import R2B_Matrial from './R2B_Matrial';
-import R2B_Parse from './R2B_Parse';
+import RtbCabinet from './R2B_Cabinet';
+import RtbComments from './R2B_Comments';
+import RtbMatrial from './R2B_Matrial';
+import RtbParse from './R2B_Parse';
 
 
 
@@ -152,10 +152,10 @@ export default class RectToBoard extends Component<{}, RectToBoardState>
                         {
                             this.setState({ ...this.state, currActiveTab: e.toString() });
                         }}>
-                        <Tab id={'1'} title='柜体配置' panel={<R2B_Cabinet />} />
-                        <Tab id={'2'} title='解析与内缩' panel={<R2B_Parse />} />
-                        <Tab id={'3'} title='材料配置' panel={<R2B_Matrial />} />
-                        <Tab id={'4'} title='备注' panel={<R2B_Comments />} />
+                        <Tab id={'1'} title='柜体配置' panel={<RtbCabinet />} />
+                        <Tab id={'2'} title='解析与内缩' panel={<RtbParse />} />
+                        <Tab id={'3'} title='材料配置' panel={<RtbMatrial />} />
+                        <Tab id={'4'} title='备注' panel={<RtbComments />} />
                     </Tabs>
                 </main>
                 <footer className={Classes.DIALOG_FOOTER}>

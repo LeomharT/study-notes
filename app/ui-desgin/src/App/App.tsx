@@ -1,20 +1,23 @@
-import { ColorScheme } from '@mantine/core';
-import { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Autocomplete from '../feature/autocomplete/';
 import RectToBoard from '../feature/panel/components/ReacToBoard/RectToBoard';
 
 export default function App()
 {
-    const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
-    const toggleColorScheme = (value?: ColorScheme) =>
-        setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+    // const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+    // const toggleColorScheme = (value?: ColorScheme) =>
+    //     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
     return (
         <div className='App' >
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<div>hello</div>} />
+                    <Route path='/' element={
+                        <div>
+                            <p><Link to={'/r2bbord'}>r2bbord</Link></p>
+                            <p><Link to={'/autocomplete'}>autocomplete</Link></p>
+                        </div>}
+                    />
                     <Route path='/r2bbord' element={<RectToBoard />} />
                     <Route path='/autocomplete' element={<Autocomplete />} />
                     {/** 现在没有模糊匹配了exact */}
