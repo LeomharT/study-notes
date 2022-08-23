@@ -22,7 +22,7 @@ export default function App()
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={
-                        <div>
+                        <div style={{ display: 'flex', alignItems: 'center', flexDirection: "column" }}>
                             <p><Link to={'/r2bbord'}>r2bbord</Link></p>
                             <p><Link to={'/autocomplete'} state={{ address: "giao" }}>autocomplete</Link></p>
                             <p><Link to={'/smallwindowsvideo'}>smallwindowsvideo</Link></p>
