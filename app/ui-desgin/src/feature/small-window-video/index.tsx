@@ -1,6 +1,20 @@
 import React, { PointerEvent, RefObject, useCallback, useMemo, useRef, useState } from 'react';
 import './index.scss';
 
+
+const converTime = (time: number) =>
+{
+    const hour = Math.floor(time / 3600).toString().padStart(2, '0');
+
+    const minute = Math.floor(time / 60).toString().padStart(2, '0');
+
+    const second = (time % 60 | 0).toString().padStart(2, '0');
+
+    console.log(hour, minute, second);
+
+    return `${hour}:${minute}:${second}`;
+};
+
 /**
  * @link https://developer.mozilla.org/zh-CN/docs/Web/API/Node/appendChild
  *
@@ -48,7 +62,6 @@ export default function SmallWindowVideo()
 
         const ctx = canvas.getContext('2d');
 
-
         canvas.width = videoRef.current!.clientWidth;
         canvas.height = videoRef.current!.clientHeight;
 
@@ -95,6 +108,7 @@ export default function SmallWindowVideo()
                 >
                     <div className='process'></div>
                 </div>
+                {converTime(currTime)}
                 <div className='process_thumbnail'>
                     <img alt='thumbnail' src={showVideoThumbnail} />
                 </div>
