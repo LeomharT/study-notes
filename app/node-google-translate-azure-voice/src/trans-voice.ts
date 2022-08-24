@@ -106,6 +106,21 @@ app.get('/TransVoice', async (req, res) =>
 
                 //可以使用end发送Buffer
                 res.end(final_data);
+
+                //保存为文件然后读取文件的方法 => 这个方法在前端也是读取res.blob()获取数据然后URL转为资源
+                // fs.writeFileSync('./result.mp3', final_data);
+
+                // const stat = fs.readFileSync('./result.mp3');
+
+                // res.writeHead(200, {
+                //     'Content-Type': 'audio/mp3',
+                //     'Content-Length': stat.length,
+                //     "Accept-Ranges": "bytes"
+                // });
+
+                // const read_stream = fs.createReadStream('./result.mp3');
+
+                // read_stream.pipe(res);
             }
         }
         if (isBinary)
