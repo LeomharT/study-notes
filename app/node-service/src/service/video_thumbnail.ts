@@ -35,7 +35,8 @@ app.get(URL.VIDEO_THUMBNAIL, async (req, res) =>
     // await ffmpeg.run('-i', 'video.mp4', '-vf', 'scale=192:108,setsar=1:1', '-threads', '5', '-preset', 'ultrafast', 'video192x108.mp4');
     // fs.writeFileSync('./video192x108.mp4', ffmpeg.FS('readFile', 'video192x108.mp4'));
 
-    await ffmpeg.run('-i', 'video.mp4', "-ss", '00:00:40', '-s', '192x108', '-frames:v', '1', '-q:v', '2', 'ok.png');
+    //-q:v 表示想要的图片质量 2 一般是高质量
+    await ffmpeg.run('-i', 'video.mp4', "-ss", '00:00:40', '-s', '192x108', '-frames:v', '1', '-q:v', '0', 'ok.png');
 
     fs.writeFileSync('./ok.png', ffmpeg.FS('readFile', 'ok.png'));
 
