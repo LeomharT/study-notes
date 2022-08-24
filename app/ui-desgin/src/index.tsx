@@ -1,6 +1,7 @@
 import '@blueprintjs/core/lib/css/blueprint.css';
 import { createRoot } from 'react-dom/client';
 import App from './App/App';
+import './index.scss';
 import reportWebVitals from './reportWebVitals';
 
 const root = createRoot(document.getElementById('root') as HTMLDivElement);
@@ -8,7 +9,6 @@ const root = createRoot(document.getElementById('root') as HTMLDivElement);
 root.render(
     <App />
 );
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
