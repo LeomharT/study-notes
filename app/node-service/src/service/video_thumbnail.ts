@@ -22,7 +22,7 @@ app.get(URL.VIDEO_THUMBNAIL, async (req, res) =>
 
     console.time('thumbnail');
 
-    const videoUrl = path.resolve() + '/video192x108.mp4';
+    const videoUrl = path.resolve() + '/video150x80.mp4';
 
     if (!ffmpeg.isLoaded())
     {
@@ -33,8 +33,8 @@ app.get(URL.VIDEO_THUMBNAIL, async (req, res) =>
     ffmpeg.FS('writeFile', 'video.mp4', await fetchFile(videoUrl));
 
     //先转码为低分辨率的视频文件
-    // await ffmpeg.run('-i', 'video.mp4', '-vf', 'scale=192:108,setsar=1:1', '-threads', '5', '-preset', 'ultrafast', 'video192x108.mp4');
-    // fs.writeFileSync('./video192x108.mp4', ffmpeg.FS('readFile', 'video192x108.mp4'));
+    // await ffmpeg.run('-i', 'video.mp4', '-vf', 'scale=150:80,setsar=1:1', '-threads', '5', '-preset', 'ultrafast', 'video150x80.mp4');
+    // fs.writeFileSync('./video150x80.mp4', ffmpeg.FS('readFile', 'video150x80.mp4'));
 
     //-q:v 表示想要的图片质量 2 一般是高质量
     await ffmpeg.run('-i', 'video.mp4', "-ss", time_stamp, '-s', '192x108', '-frames:v', '1', '-q:v', '0', 'ok.png');

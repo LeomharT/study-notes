@@ -108,9 +108,16 @@ export default function SmallWindowVideo()
                 {converTime(currTime)}
                 <div className='process_thumbnail'>
                     {
-                        imgLoading
-                            ? <Spinner size={24} />
-                            : imgSrc && <img alt='thumbnail' src={imgSrc} />
+                        (() =>
+                        {
+                            if (!imgSrc && imgLoading)
+                            {
+                                return <Spinner size={24} />;
+                            } else
+                            {
+                                return <img alt='thumbnail' src={imgSrc} />;
+                            }
+                        })()
                     }
                 </div>
             </div>
