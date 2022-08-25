@@ -1,19 +1,11 @@
-import React, { PointerEvent, RefObject, useCallback, useMemo, useRef, useState } from 'react';
+import { Spinner } from '@blueprintjs/core';
+import React, { PointerEvent, RefObject, useCallback, useRef, useState } from 'react';
+import useToggle from '../../hooks/useToggle';
+import { converTime } from '../../util/conver-time';
+import Debounce from '../../util/debounce';
 import './index.scss';
 
 
-const converTime = (time: number) =>
-{
-    const hour = Math.floor(time / 3600).toString().padStart(2, '0');
-
-    const minute = Math.floor(time / 60).toString().padStart(2, '0');
-
-    const second = (time % 60 | 0).toString().padStart(2, '0');
-
-    console.log(hour, minute, second);
-
-    return `${hour}:${minute}:${second}`;
-};
 
 /**
  * @link https://developer.mozilla.org/zh-CN/docs/Web/API/Node/appendChild
@@ -27,6 +19,14 @@ const converTime = (time: number) =>
 export default function SmallWindowVideo()
 {
     const videoRef: RefObject<HTMLVideoElement> = useRef<HTMLVideoElement>(null);
+
+    const debounce: RefObject<Debounce> = useRef<Debounce>(new Debounce());
+
+    const [currTime, setCurrTime] = useState<number>(0);
+
+    const [imgSrc, setImgSrc] = useState<string>('');
+
+    const [imgLoading, setImgLoadgin] = useToggle(true);
 
     const detectVideoOffScreen = useCallback((e: React.UIEvent<HTMLDivElement>) =>
     {
@@ -52,23 +52,29 @@ export default function SmallWindowVideo()
 
     }, []);
 
-    const [currTime, setCurrTime] = useState<number>(0);
-
-    const showVideoThumbnail: string | undefined = useMemo<string | undefined>(() =>
+    const showVideoThumbnail = (e: React.MouseEvent) =>
     {
-        if (!videoRef.current) return;
+        setImgLoadgin(true);
 
-        const canvas = document.createElement('canvas');
+        const target = (e.target as HTMLDivElement);
 
-        const ctx = canvas.getContext('2d');
+        const percentage = Number((e.clientX / target.clientWidth).toFixed(2));
 
-        canvas.width = videoRef.current!.clientWidth;
-        canvas.height = videoRef.current!.clientHeight;
+        const currentTime = videoRef.current!.duration * percentage;
 
-        ctx?.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+        setCurrTime(currentTime);
 
-        return canvas.toDataURL('image/png') as string;
-    }, [currTime]);
+        console.log(converTime(currentTime));
+
+        debounce.current!.Debounce(async () =>
+        {
+            const res = await fetch(`http://localhost:6026/video_thumbnail?time_stamp=${converTime(currentTime)}`);
+
+            setImgSrc(window.URL.createObjectURL(await res.blob()));
+
+            setImgLoadgin(false);
+        }, 1000);
+    };
 
     return (
         <div className='small-window-video' onScroll={detectVideoOffScreen}>
@@ -95,22 +101,17 @@ export default function SmallWindowVideo()
 
                         videoRef.current!.play();
                     }}
-                    onMouseMove={e =>
-                    {
-                        const target = (e.target as HTMLDivElement);
-
-                        const percentage = Number((e.clientX / target.clientWidth).toFixed(2));
-
-                        const currentTime = videoRef.current!.duration * percentage;
-
-                        setCurrTime(currentTime);
-                    }}
+                    onMouseMove={showVideoThumbnail}
                 >
                     <div className='process'></div>
                 </div>
                 {converTime(currTime)}
                 <div className='process_thumbnail'>
-                    <img alt='thumbnail' src={showVideoThumbnail} />
+                    {
+                        imgLoading
+                            ? <Spinner size={24} />
+                            : imgSrc && <img alt='thumbnail' src={imgSrc} />
+                    }
                 </div>
             </div>
             <div className='flow-video-container'>

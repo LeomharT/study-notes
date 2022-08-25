@@ -1,5 +1,4 @@
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
-import fs from 'fs';
 import path from 'path';
 import Application from "../app/app";
 import { URL } from "../data/request";
@@ -19,6 +18,8 @@ app.get('/assets/video/*', (req, res) =>
 
 app.get(URL.VIDEO_THUMBNAIL, async (req, res) =>
 {
+    const time_stamp = new URLSearchParams(req.url.split('?')[1]).get('time_stamp') as string;
+
     console.time('thumbnail');
 
     const videoUrl = path.resolve() + '/video192x108.mp4';
@@ -36,13 +37,13 @@ app.get(URL.VIDEO_THUMBNAIL, async (req, res) =>
     // fs.writeFileSync('./video192x108.mp4', ffmpeg.FS('readFile', 'video192x108.mp4'));
 
     //-q:v 表示想要的图片质量 2 一般是高质量
-    await ffmpeg.run('-i', 'video.mp4', "-ss", '00:00:40', '-s', '192x108', '-frames:v', '1', '-q:v', '0', 'ok.png');
+    await ffmpeg.run('-i', 'video.mp4', "-ss", time_stamp, '-s', '192x108', '-frames:v', '1', '-q:v', '0', 'ok.png');
 
-    fs.writeFileSync('./ok.png', ffmpeg.FS('readFile', 'ok.png'));
+    const buffer = Buffer.from(ffmpeg.FS('readFile', 'ok.png'));
 
-    res.setHeader('Content-Tpye', 'memia/mp4');
+    res.setHeader('Content-Tpye', 'image/png');
 
-    res.sendFile(path.resolve() + '/ok.png');
+    res.end(buffer);
 
     console.timeEnd('thumbnail');
 
