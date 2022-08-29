@@ -37,3 +37,17 @@ Strapi是使用React做为前端框架,Strapi只提供Api接口,至于前端的�
 strapi开发文档https://getstrapi.cn/developer-docs/latest/getting-started/introduction.html
 
 ghost官网教程https://ghost.org/docs/install/local/
+
+# 3. 菜单和表单的实现
+
+上面说了Ghost使用了Handlebars做为框架,具体是基于[Ember.js](https://guides.emberjs.com/release/) ,是一个js的MVC框架(和Springboot很像),Ghost大量使用了装饰器语法,但是js的装饰器语法并没有加入标准,如果使用装饰器到后面定案后,装饰器语法有修改的话就得全部重构代码.
+
+Ghost的control层代码-> https://github.com/TryGhost/Ghost/tree/main/ghost/admin/app/controllers
+
+Ghost的前端模板代码  -> https://github.com/TryGhost/Ghost/tree/main/ghost/admin/app/templates
+
+Ghost的代码的菜单和表单都是后台配置的,就可以看作是一个springboot项目,不过使用了js实现.
+
+controler -> https://github.com/TryGhost/Ghost/blob/main/ghost/admin/app/controllers/dashboard.js
+
+template -> https://github.com/TryGhost/Ghost/blob/main/ghost/admin/app/templates/dashboard.hbs
