@@ -44,6 +44,8 @@ ghost官网教程https://ghost.org/docs/install/local/
 
 Ghost的control层代码-> https://github.com/TryGhost/Ghost/tree/main/ghost/admin/app/controllers
 
+Ghost的service层代码  -> https://github.com/TryGhost/Ghost/tree/main/ghost/admin/app/services
+
 Ghost的前端模板代码  -> https://github.com/TryGhost/Ghost/tree/main/ghost/admin/app/templates
 
 Ghost的代码的菜单和表单都是后台配置的,就可以看作是一个springboot项目,不过使用了js实现.
@@ -51,3 +53,5 @@ Ghost的代码的菜单和表单都是后台配置的,就可以看作是一个sp
 controler -> https://github.com/TryGhost/Ghost/blob/main/ghost/admin/app/controllers/dashboard.js
 
 template -> https://github.com/TryGhost/Ghost/blob/main/ghost/admin/app/templates/dashboard.hbs
+
+service -> https://github.com/TryGhost/Ghost/blob/main/ghost/admin/app/services/dashboard-stats.js
