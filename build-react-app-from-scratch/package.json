@@ -1,21 +1,22 @@
 {
-  "name": "build-react-app-from-scratch",
-  "version": "1.0.0",
-  "description": "Use esbuild build react app from scratch",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/react": "^18.0.18",
-    "@types/react-dom": "^18.0.6",
-    "esbuild": "^0.15.6"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "web-vitals": "^3.0.1"
-  }
+    "name": "build-react-app-from-scratch",
+    "version": "1.0.0",
+    "description": "Use esbuild build react app from scratch",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "node esbuild.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/react": "^18.0.18",
+        "@types/react-dom": "^18.0.6",
+        "esbuild": "^0.15.6"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "web-vitals": "^3.0.1"
+    }
 }
