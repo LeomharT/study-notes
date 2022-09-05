@@ -1,8 +1,19 @@
-const esbuild = require('esbuild');
+import esbuild from 'esbuild';
+import inlineImage from 'esbuild-plugin-inline-image';
+import { sassPlugin } from 'esbuild-sass-plugin';
 
-esbuild.build({
+console.time('build');
+
+await esbuild.build({
     entryPoints: ['index.tsx'],
     bundle: true,
-    outfile: './public/bundle.js',
+    outdir: 'dist',
+    plugins: [
+        sassPlugin(),
+        inlineImage()
+    ],
     watch: true,
+    minify: true
 }).catch(err => { console.log(err); });
+
+console.timeEnd('build');
