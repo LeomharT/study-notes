@@ -2,8 +2,9 @@
     "name": "service",
     "version": "1.0.0",
     "main": "index.js",
+    "type": "module",
     "scripts": {
-        "start": "nodemon src/index.ts"
+        "start": "nodemon -x node --loader ts-node/esm ./src/index.ts"
     },
     "author": "",
     "license": "ISC",
@@ -11,14 +12,19 @@
     "description": "",
     "dependencies": {
         "@ffmpeg/core": "^0.11.0",
-        "@ffmpeg/ffmpeg": "^0.11.2",
+        "@ffmpeg/ffmpeg": "^0.11.5",
+        "cheerio": "^1.0.0-rc.12",
         "cors": "^2.8.5",
         "express": "^4.18.1",
-        "mysql": "^2.18.1"
+        "mysql": "^2.18.1",
+        "node-fetch": "^3.2.10"
     },
     "devDependencies": {
+        "@types/cheerio": "^0.22.31",
         "@types/cors": "^2.8.12",
         "@types/express": "^4.17.13",
-        "@types/mysql": "^2.15.21"
+        "@types/mysql": "^2.15.21",
+        "@types/node-fetch": "^2.6.2",
+        "ts-node": "^10.9.1"
     }
 }

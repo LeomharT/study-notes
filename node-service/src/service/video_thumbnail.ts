@@ -1,7 +1,7 @@
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 import path from 'path';
-import Application from "../app/app";
-import { URL } from "../data/request";
+import Application from "../app/app.js";
+import { URL } from "../data/request.js";
 
 const { app } = Application.getInstance();
 

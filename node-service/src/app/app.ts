@@ -1,6 +1,6 @@
 import cors from 'cors';
 import express, { Express } from 'express';
-import { PORT } from '../data/host';
+import { PORT } from '../data/host.js';
 export default class Application
 {
     constructor()
