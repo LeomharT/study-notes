@@ -29,6 +29,7 @@ export default class Application
         app.listen(PORT, () =>
         {
             console.log(`\u001b[7;34mApp running successfully at port ${PORT} !!\u001b[0m`);
+            console.log(`\u001b[7;34mhttp://localhost:${PORT}\u001b[0m`);
         });
     };
 

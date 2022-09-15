@@ -1,14 +1,38 @@
+import { createConnection } from 'mysql';
 import Application from "../app/app.js";
+import { DNS } from "../data/host.js";
 import { URL } from "../data/request.js";
 
 const { app } = Application.getInstance();
 
-app.get(URL.EXERCISELIST, (req, res) =>
+
+
+app.get(URL.addCourseExercise, async (req, res) =>
 {
-    const data: any[] = [
-
-    ];
+    const conn = createConnection(DNS);
 
 
-    res.send(data);
+
+    const result = new Promise((reslove, reject) =>
+    {
+        conn.query('select * from exercise_detail;', ((err, data) =>
+        {
+            if (err) reject(err);
+            reslove(data);
+        }));
+    });
+
+
+    const response = {
+        code: 200,
+        msg: "success",
+        result: {
+            data: await result
+        }
+    };
+
+    res.send(response);
+
+
+    conn.end();
 });
