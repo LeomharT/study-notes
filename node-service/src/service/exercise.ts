@@ -7,7 +7,7 @@ const { app } = Application.getInstance();
 
 
 
-app.get(URL.addCourseExercise, async (req, res) =>
+app.get(URL.fetchExerciseDetail, async (req, res) =>
 {
     const conn = createConnection(DNS);
 
