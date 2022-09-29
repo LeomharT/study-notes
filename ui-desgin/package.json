@@ -31,6 +31,7 @@
         "customize-cra": "^1.0.0",
         "dayjs": "^1.11.2",
         "file-saver": "^2.0.5",
+        "hamburgers": "^1.2.1",
         "node-sass": "^7.0.1",
         "react": "^18.2.0",
         "react-app-rewired": "^2.2.1",
