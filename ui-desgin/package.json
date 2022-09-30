@@ -27,11 +27,13 @@
         "@types/react-dom": "^18.0.6",
         "@types/react-router": "^5.1.18",
         "@types/react-router-dom": "^5.3.3",
+        "bootstrap": "^3.4.1",
         "classnames": "^2.3.1",
         "customize-cra": "^1.0.0",
         "dayjs": "^1.11.2",
         "file-saver": "^2.0.5",
         "hamburgers": "^1.2.1",
+        "jquery": "^3.6.1",
         "node-sass": "^7.0.1",
         "react": "^18.2.0",
         "react-app-rewired": "^2.2.1",
@@ -70,6 +72,7 @@
         ]
     },
     "devDependencies": {
-        "@types/file-saver": "^2.0.5"
+        "@types/file-saver": "^2.0.5",
+        "@types/jquery": "^3.5.14"
     }
 }
