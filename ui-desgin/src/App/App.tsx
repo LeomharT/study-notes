@@ -1,21 +1,11 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Autocomplete from '../feature/autocomplete/';
+import DargBox from '../feature/darg-box';
 import Hamburger from '../feature/hamburger';
 import SmallWindowVideo from '../feature/small-window-video';
 
 export default function App()
 {
-    // useLayoutEffect(() =>
-    // {
-    //     const html = document.querySelector(':root');
-
-    //     if (html?.classList.contains('bp4-dark')) return;
-
-    //     html?.classList.add('bp4-dark');
-
-    //     document.body.style.color = 'inherit';
-    // }, []);
-
     return (
         <div className='App' >
             <BrowserRouter>
@@ -25,11 +15,14 @@ export default function App()
                             <p><Link to={'/autocomplete'} state={{ address: "giao" }}>autocomplete</Link></p>
                             <p><Link to={'/smallwindowsvideo'}>smallwindowsvideo</Link></p>
                             <p><Link to={'/hamburger'}>hamburger</Link></p>
-                        </div>}
+                            <p><Link to={'/darg'}>darg</Link></p>
+                        </div>
+                    }
                     />
                     <Route path='/autocomplete/*' element={<Autocomplete />} />
                     <Route path='/smallwindowsvideo' element={<SmallWindowVideo />} />
                     <Route path='/hamburger' element={<Hamburger />} />
+                    <Route path='/darg' element={<DargBox />} />
                     {/** 现在没有模糊匹配了exact */}
                     {/* <Route path='/mantine' element={<Mantine />} />
                         <Route path='/mantine/:id' element={<Mantine />} /> */}
