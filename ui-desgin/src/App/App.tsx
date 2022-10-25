@@ -2,6 +2,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Autocomplete from '../feature/autocomplete/';
 import DargBox from '../feature/darg-box';
 import Hamburger from '../feature/hamburger';
+import SelectRegion from '../feature/select-region/SelectRegion';
 import SmallWindowVideo from '../feature/small-window-video';
 
 export default function App()
@@ -16,6 +17,8 @@ export default function App()
                             <p><Link to={'/smallwindowsvideo'}>smallwindowsvideo</Link></p>
                             <p><Link to={'/hamburger'}>hamburger</Link></p>
                             <p><Link to={'/darg'}>darg</Link></p>
+                            <p><Link to={'/spinner'}>spinner</Link></p>
+                            <p><Link to={'/selectRegion'}>selectRegion</Link></p>
                         </div>
                     }
                     />
@@ -23,6 +26,7 @@ export default function App()
                     <Route path='/smallwindowsvideo' element={<SmallWindowVideo />} />
                     <Route path='/hamburger' element={<Hamburger />} />
                     <Route path='/darg' element={<DargBox />} />
+                    <Route path='/selectRegion' element={<SelectRegion />} />
                     {/** 现在没有模糊匹配了exact */}
                     {/* <Route path='/mantine' element={<Mantine />} />
                         <Route path='/mantine/:id' element={<Mantine />} /> */}
