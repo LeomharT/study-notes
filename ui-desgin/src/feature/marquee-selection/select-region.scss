@@ -1,0 +1,29 @@
+.selected-regions
+{
+    width     : 100vw;
+    height    : 100vh;
+    position  : relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    ul
+    {
+        display  : flex;
+        flex-flow: row wrap;
+        gap: 10px;
+        li
+        {
+            height     : 100px;
+            user-select: none;
+            text-align : center;
+            line-height: 100px;
+            background : rgb(243, 242, 241);
+        }
+    }
+}
+
+.region
+{
+    position        : absolute;
+    background-color: rgba(45, 114, 210, .1);
+    color: rgb(45, 114, 210)
+}
