@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import './assets/index.scss';
 
 
@@ -13,41 +14,50 @@ const IMAGE_URLS: string[] = [
 
 export default function DargBox()
 {
+    const handleDragStart = useCallback((e: React.PointerEvent<HTMLDivElement>) =>
+    {
+        const { clientX, clientY } = e;
+
+        const drag_target = e.currentTarget as HTMLDivElement;
+
+        const drag_box = drag_target.parentNode as HTMLDivElement;
+
+        const clone = drag_target.cloneNode(true) as HTMLDivElement;
+
+        clone.style.opacity = '0.5';
+        clone.style.position = 'absolute';
+        clone.style.top = clientY + 'px';
+        clone.style.left = clientX + 'px';
+
+        drag_box.appendChild(clone);
+
+
+
+        window.onpointerup = () =>
+        {
+            window.onmousemove = null;
+            window.onpointerup = null;
+
+            if (drag_box.contains(clone))
+            {
+                drag_box.removeChild(clone);
+            }
+        };
+
+    }, []);
+
     return (
         <div className="darg-box">
             <div className="icon-area">
                 {IMAGE_URLS.map(v => (
-                    <img
-                        key={v}
-                        alt="icon"
-                        src={v}
-                        draggable={true}
-                        onDragStart={e =>
-                        {
-                            e.preventDefault();
-
-                            const img = e.currentTarget as HTMLImageElement;
-
-                            const clone = img.cloneNode() as HTMLImageElement;
-
-                            clone.style.position = 'absolute';
-                            clone.style.left = e.clientX + 'px';
-                            clone.style.top = e.clientY + 'px';
-                        }}
-                    />
+                    <div key={v} onPointerDown={handleDragStart} className='drag-item' >
+                        <img
+                            alt="icon"
+                            src={v}
+                            draggable={false}
+                        />
+                    </div>
                 ))}
-            </div>
-            <div className="drop"
-                onDragOver={e =>
-                {
-                    e.preventDefault();
-                }}
-                onDrop={e =>
-                {
-                    e.preventDefault();
-                    console.log(e);
-                }}>
-
             </div>
         </div>
     );
