@@ -4,6 +4,7 @@ import DargBox from '../feature/darg-box';
 import Hamburger from '../feature/hamburger';
 import SelectRegion from '../feature/marquee-selection/SelectRegion';
 import SmallWindowVideo from '../feature/small-window-video';
+import Spinner from '../feature/spinner/spinner';
 
 export default function App()
 {
@@ -26,6 +27,7 @@ export default function App()
                     <Route path='/smallwindowsvideo' element={<SmallWindowVideo />} />
                     <Route path='/hamburger' element={<Hamburger />} />
                     <Route path='/darg' element={<DargBox />} />
+                    <Route path='/spinner' element={<Spinner />} />
                     <Route path='/selectRegion' element={<SelectRegion />} />
                     {/** 现在没有模糊匹配了exact */}
                     {/* <Route path='/mantine' element={<Mantine />} />
