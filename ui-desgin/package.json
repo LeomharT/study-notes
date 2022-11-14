@@ -8,6 +8,7 @@
         "@blueprintjs/core": "^4.1.2",
         "@blueprintjs/popover2": "~1.6.0",
         "@blueprintjs/table": "^4.1.2",
+        "@fluentui/react": "^8.101.0",
         "@mantine/core": "^4.2.5",
         "@mantine/dates": "^4.2.5",
         "@mantine/dropzone": "^4.2.5",
