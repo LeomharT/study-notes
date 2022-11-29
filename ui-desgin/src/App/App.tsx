@@ -2,6 +2,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Autocomplete from '../feature/autocomplete/';
 import DargBox from '../feature/darg-box';
 import FluentNav from '../feature/fluent-nav/FluentNav';
+import FormOr from '../feature/form-or/FormOr';
 import Hamburger from '../feature/hamburger';
 import SelectRegion from '../feature/marquee-selection/SelectRegion';
 import SmallWindowVideo from '../feature/small-window-video';
@@ -22,6 +23,7 @@ export default function App()
                             <p><Link to={'/spinner'}>spinner</Link></p>
                             <p><Link to={'/selectRegion'}>selectRegion</Link></p>
                             <p><Link to={'/fluentNav'}>fluentNav</Link></p>
+                            <p><Link to={'/formOr'}>formOr</Link></p>
                         </div>
                     }
                     />
@@ -32,6 +34,7 @@ export default function App()
                     <Route path='/spinner' element={<Spinner />} />
                     <Route path='/selectRegion' element={<SelectRegion />} />
                     <Route path='/fluentNav' element={<FluentNav />} />
+                    <Route path='/formOr' element={<FormOr />} />
                     {/** 现在没有模糊匹配了exact */}
                     {/* <Route path='/mantine' element={<Mantine />} />
                         <Route path='/mantine/:id' element={<Mantine />} /> */}
