@@ -1,10 +1,10 @@
-import WhenExample from '../feature/mobx-reactions/WhenExample';
+import EsModules from '../feature/es-modules/EsModules';
 
 export default function App()
 {
     return (
         <div>
-            <WhenExample />
+            <EsModules />
         </div>
     );
 }
