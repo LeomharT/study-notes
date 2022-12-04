@@ -5,35 +5,48 @@ export default function FormOr()
 {
     const form = useForm({
         initialValues: {
-            first_name: '',
-            last_name: '',
+            name: {
+                first_name: '',
+                last_name: '',
+            },
             age: 0
         },
         validate: {
-            first_name: (value: string, values) =>
+            name: (value, values) =>
             {
-                if (value || values.last_name) return null;
-
-                return 'Name must have at least 2 letters';
+                if (value.first_name !== '' || value.last_name !== '') return null;
+                return 'Must enter a name';
             },
-            last_name: (value: string, values) =>
+            age: (value: number) =>
             {
-                if (value || values.first_name) return null;
+                if (value < 18) return 'You must be at least 18 to register';
 
-                return 'Name must have at least 2 letters';
-            },
-            age: (value: number) => (value < 18 ? 'You must be at least 18 to register' : null),
+                return null;
+            }
         }
     });
 
 
     return (
         <Box sx={{ maxWidth: 340 }} mx="auto">
-            <form onSubmit={form.onSubmit(console.log)}>
-                <Box >
-                    <TextInput label="First Name" placeholder="First Name" {...form.getInputProps('first_name')} />
+            <form onSubmit={form.onSubmit(e => console.log(e))}>
+                <Box style={{
+                    display: 'flex'
+                }}>
+                    <TextInput
+                        withAsterisk
+                        label="First Name"
+                        placeholder="First Name"
+                        {...form.getInputProps('name.first_name')}
+                        error={form.getInputProps('name').error}
+                    />
                     <span style={{ fontSize: "20px" }}>or</span>
-                    <TextInput label="Last Name" placeholder="Last Name" {...form.getInputProps('last_name')} />
+                    <TextInput
+                        label="Last Name"
+                        placeholder="Last Name"
+                        {...form.getInputProps('name.last_name')}
+                        error={form.getInputProps('name').error}
+                    />
                 </Box>
                 <NumberInput
                     mt="sm"
