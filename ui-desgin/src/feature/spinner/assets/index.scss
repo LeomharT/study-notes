@@ -2,14 +2,20 @@
     0% {
         stroke-dasharray: 1,200;
         stroke-dashoffset: 0;
+        stroke: #EA4335;
+    }
+    25% {
+        stroke: #4285F4;
     }
     50% {
         stroke-dasharray: 90,150;
         stroke-dashoffset: -40px;
+        stroke: #FBBC05;
     }
     100% {
         stroke-dasharray: 90,150;
         stroke-dashoffset: -120px;
+        stroke: #34A853;
     }
 }
 @keyframes looping
@@ -35,11 +41,12 @@
         animation: looping 1.5s linear infinite;
         >circle
         {
-            animation        : spinning 1.5s ease-in infinite;
+            animation        : spinning 2s ease-in infinite;
             stroke-dasharray : 90, 150;
             stroke-dashoffset: 0;
             stroke-width     : 2;
             stroke           : #409eff;
+            transition       : color 2s ease-in 0s;
             stroke-linecap   : round;
         }
     }

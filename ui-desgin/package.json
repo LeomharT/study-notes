@@ -35,6 +35,8 @@
         "file-saver": "^2.0.5",
         "hamburgers": "^1.2.1",
         "jquery": "^3.6.1",
+        "mobx": "^6.6.2",
+        "mobx-react": "^7.5.3",
         "node-sass": "^7.0.1",
         "react": "^18.2.0",
         "react-app-rewired": "^2.2.1",
