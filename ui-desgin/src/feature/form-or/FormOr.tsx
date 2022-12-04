@@ -1,5 +1,15 @@
-import { Box, Button, NumberInput, TextInput } from '@mantine/core';
-import { useForm } from '@mantine/form';
+import { Box, Button } from '@mantine/core';
+import { useForm, UseFormReturnType } from '@mantine/form';
+import { createContext } from 'react';
+import AgeField from './components/AgeField';
+import NameField from './components/NameField';
+
+export type FormContextType = {
+    form: UseFormReturnType<any>;
+};
+
+
+export const FormContext = createContext<FormContextType>({} as FormContextType);
 
 export default function FormOr()
 {
@@ -27,39 +37,21 @@ export default function FormOr()
     });
 
 
+
+
     return (
         <Box sx={{ maxWidth: 340 }} mx="auto">
-            <form onSubmit={form.onSubmit(e => console.log(e))}>
-                <Box style={{
-                    display: 'flex'
-                }}>
-                    <TextInput
-                        withAsterisk
-                        label="First Name"
-                        placeholder="First Name"
-                        {...form.getInputProps('name.first_name')}
-                        error={form.getInputProps('name').error}
-                    />
-                    <span style={{ fontSize: "20px" }}>or</span>
-                    <TextInput
-                        label="Last Name"
-                        placeholder="Last Name"
-                        {...form.getInputProps('name.last_name')}
-                        error={form.getInputProps('name').error}
-                    />
-                </Box>
-                <NumberInput
-                    mt="sm"
-                    label="Age"
-                    placeholder="Age"
-                    min={0}
-                    max={99}
-                    {...form.getInputProps('age')}
-                />
-                <Button type="submit" mt="sm">
-                    Submit
-                </Button>
-            </form>
+            <FormContext.Provider value={{
+                form
+            }}>
+                <form onSubmit={form.onSubmit(e => console.log(e))}>
+                    <NameField />
+                    <AgeField />
+                    <Button type="submit" mt="sm">
+                        Submit
+                    </Button>
+                </form>
+            </FormContext.Provider>
         </Box>
     );
 }
