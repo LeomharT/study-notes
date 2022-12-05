@@ -22,17 +22,9 @@ export default function FormOr()
             age: 0
         },
         validate: {
-            name: (value, values) =>
-            {
-                if (value.first_name !== '' || value.last_name !== '') return null;
-                return 'Must enter a name';
-            },
-            age: (value: number) =>
-            {
-                if (value < 18) return 'You must be at least 18 to register';
+            name: value => (value.first_name === '' && value.last_name === '') ? 'Must enter a name' : null,
 
-                return null;
-            }
+            age: value => value < 18 ? 'You must be at least 18 to register' : null,
         }
     });
 

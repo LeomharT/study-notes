@@ -9,7 +9,9 @@ export default function NameField()
     return (
         <div>
             <Box style={{
-                display: 'flex'
+                display: 'flex',
+                alignItems: 'center',
+                gap: 10
             }}>
                 <TextInput
                     withAsterisk
@@ -20,6 +22,7 @@ export default function NameField()
                 />
                 <span style={{ fontSize: "20px" }}>or</span>
                 <TextInput
+                    withAsterisk
                     label="Last Name"
                     placeholder="Last Name"
                     {...form.getInputProps('name.last_name')}
