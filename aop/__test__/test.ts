@@ -1,36 +1,74 @@
-
-class Person
+class InjectFunctionList
 {
-    constructor()
-    {
-        this.name = 'lzy';
-        this.age = '22';
-        this.address = 'sw';
-    }
-    private name: string;
-    private age: string;
-    private address: string;
-    SayHi = () =>
-    {
-
-    };
-    ChangeName = (name: string) =>
-    {
-        this.name = name;
-    };
+    beginFunctionList: Function[] = [];
+    endFunctionList: Function[] = [];
 }
-const person = new Person();
-Begin(person, person.ChangeName, (name: string) =>
+
+
+const aopWeakMap: WeakMap<object, InjectFunctionList> = new WeakMap();
+
+const function_list = new InjectFunctionList();
+
+
+function callFunctionList(funcList: Function[], target: object, ...args: any[])
 {
-    person.ChangeName("只要该名字我就是你的名字");
+    for (const f of funcList)
+    {
+        if (f.call(target, ...args)) return;
+    }
+}
+
+
+function makeAop(target: (...args: any[]) => any): (...args: any[]) => any
+{
+    const returnFunction = (...args: any[]) =>
+    {
+        callFunctionList(function_list.beginFunctionList, globalThis, ...args);
+
+        const result = target.call(globalThis, ...args);
+
+        if (result) args.unshift(result);
+
+        callFunctionList(function_list.endFunctionList, globalThis, ...args);
+    };
+
+    aopWeakMap.set(returnFunction, function_list);
+
+    return returnFunction;
+};
+
+function begin(target: (...args: any[]) => any, beginFunction: (...args: any[]) => any)
+{
+    if (!aopWeakMap.has(target))
+    {
+        console.warn(target.name + 'This function is not aop function');
+
+        return;
+    }
+    aopWeakMap.get(target)?.beginFunctionList.push(beginFunction);
+}
+
+function end(target: (...args: any[]) => any, endFunction: (...args: any[]) => any)
+{
+    if (!aopWeakMap.has(target))
+    {
+        console.warn(target.name + 'This function is not aop function');
+
+        return;
+    }
+    aopWeakMap.get(target)?.endFunctionList.push(endFunction);
+}
+
+const test = makeAop((a: string) =>
+{
+    console.log(a);
+    return { name: '妈妈' };
 });
 
 
-const app = new WeakMap<Object, number>();
-const b = [12333];
-app.set(b, 21);
-console.log(app.get(b));
-function Begin(person: Person, ChangeName: (name: string) => void, arg2: (name: string) => void)
+end(test, (...args: any[]) =>
 {
-    throw new Error("Function not implemented.");
-}
+    console.log(args);
+});
+
+test('牛逼');
